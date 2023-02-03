@@ -19,9 +19,16 @@ let running = false;
 
 initalizeGame();
 
+document.getElementById("darkmode").addEventListener('click', darkmodeToggle);
+function darkmodeToggle() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+ }
+
+
 function initalizeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
-    restartBtn.addEventListener("click", restartGame);
+    restartBtn.addEventListener("click", startAnimation);
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
 }
@@ -84,4 +91,25 @@ function restartGame(){
     statusText.textContent = `${currentPlayer}'s turn`;
     cells.forEach(cell => cell.textContent = "");
     running = true;
+}
+
+var btn = document.querySelector(".button")
+function startAnimation(){
+
+    btn.classList.add("line");
+    btn.innerHTML = ""
+    
+    setTimeout(() => {
+        btn.classList.remove("line");
+        btn.classList.add("circle");
+        btn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+        restartGame();
+    },1000);
+
+    setTimeout(() => {
+        btn.classList.remove("circle");
+        btn.innerHTML = 'Restart';
+
+    },2000);
+    
 }
