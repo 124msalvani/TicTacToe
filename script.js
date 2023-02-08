@@ -1,3 +1,6 @@
+import JSConfetti from 'js-confetti'
+const jsConfetti = new JSConfetti()
+
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
@@ -74,6 +77,7 @@ function checkWinner(){
 
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`;
+        confettiWin();
         running = false;
     }
     else if(!options.includes("")){
@@ -112,4 +116,8 @@ function startAnimation(){
 
     },2000);
     
+}
+
+function confettiWin(){
+    jsConfetti.addConfettii()
 }
