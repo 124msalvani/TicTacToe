@@ -24,6 +24,7 @@ let running = false;
 initalizeGame();
 
 document.getElementById("darkmode").addEventListener('click', darkmodeToggle);
+
 function darkmodeToggle() {
     var element = document.body;
     element.classList.toggle("dark-mode");
@@ -58,6 +59,7 @@ var sound4 = new Audio();
 sound4.src = "sounds/mixkit-sad-game-over-trombone-471.wav";
 var sound5 = new Audio();
 sound5.src = "sounds/mixkit-software-interface-remove-2576.wav";
+
 
 
 function updateCell(cell,index){
@@ -137,7 +139,6 @@ function startAnimation(){
     setTimeout(() => {
         btn.classList.remove("circle");
         btn.innerHTML = 'Restart';
-        
     },2000);
     
 }
