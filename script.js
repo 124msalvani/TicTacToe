@@ -56,6 +56,8 @@ var sound3 = new Audio();
 sound3.src = "sounds/mixkit-happy-party-horn-sound-530.wav";
 var sound4 = new Audio();
 sound4.src = "sounds/mixkit-sad-game-over-trombone-471.wav";
+var sound5 = new Audio();
+sound5.src = "sounds/mixkit-software-interface-remove-2576.wav";
 
 
 function updateCell(cell,index){
@@ -129,12 +131,13 @@ function startAnimation(){
         btn.classList.add("circle");
         btn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
         restartGame();
+        sound5.play()
     },1000);
 
     setTimeout(() => {
         btn.classList.remove("circle");
         btn.innerHTML = 'Restart';
-
+        
     },2000);
     
 }
