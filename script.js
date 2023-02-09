@@ -1,5 +1,6 @@
-import JSConfetti from 'js-confetti'
-const jsConfetti = new JSConfetti()
+// import JSConfetti from 'js-confetti';
+const canvas = document.querySelector('#confetti');
+const jsConfetti = new JSConfetti();
 
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
@@ -119,5 +120,5 @@ function startAnimation(){
 }
 
 function confettiWin(){
-    jsConfetti.addConfettii()
+    jsConfetti.addConfetti();
 }
