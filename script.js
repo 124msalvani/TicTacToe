@@ -48,9 +48,28 @@ function cellClicked(){
     checkWinner();
 }
 
+var sound1 = new Audio();
+sound1.src = "sounds/mixkit-arcade-game-jump-coin-216.wav";
+var sound2 = new Audio();
+sound2.src = "sounds/mixkit-arrow-whoosh-1491.wav";
+var sound3 = new Audio();
+sound3.src = "sounds/mixkit-happy-party-horn-sound-530.wav";
+var sound4 = new Audio();
+sound4.src = "sounds/mixkit-sad-game-over-trombone-471.wav";
+
+
 function updateCell(cell,index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    if (currentPlayer == "X"){
+        sound1.play();
+        return;
+    } else if (currentPlayer == "O") {
+        sound2.play();
+        return;
+    } else {
+        return
+    }
 }
 
 function changePlayer(){
@@ -83,6 +102,7 @@ function checkWinner(){
     }
     else if(!options.includes("")){
         statusText.textContent = `Draw!`;
+        sound4.play();
         running = false;
     }
     else{
@@ -121,4 +141,5 @@ function startAnimation(){
 
 function confettiWin(){
     jsConfetti.addConfetti();
+    sound3.play();
 }
